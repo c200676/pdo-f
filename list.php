@@ -93,7 +93,7 @@ try{
    $page_num->execute(); 
    $page_num = $page_num->fetchColumn(); 
    // ページネーションの数を取得する 
-   $pagination = [総ページ数の計算処理] 
+   $pagination = ceil($page_num / 5);  
 ?> 
 <?php
    for ($x=1; $x <= $pagination ; $x++) { 
