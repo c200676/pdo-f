@@ -8,9 +8,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){     // 最初の条件検索時
     $page = 1;   // 初期表示は1ページ 
 } elseif($_SERVER['REQUEST_METHOD'] === 'GET'){  // ページネーション時 
     if (isset($_GET['page'])) { 
-        [ページ番号を設定処理1]  
+        $page = (int)$_GET['page'];  
     } else { 
-        [ページ番号を設定処理2]  
+        $page = 1;
     } 
     // スタートのポジションを計算する 
     // 取得するレコードの先頭位置を求める 
