@@ -18,7 +18,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){     // 最初の条件検索時
     // 取得するレコードの先頭位置を求める 
     if ($page > 1) { 
         // 例：２ページ目の場合は、『(2ページ目 × 最大表示件数) - 最大表示件数 = 5』 
-        $start = ($page * 5) - 5;   // $start変数に設定 
+        $start = ($page * MAXITEM) - MAXITEM;   // $start変数に設定 
     } else { 
         $start = 0;  // 1ページ目の場合は先頭 0 
     } 
@@ -96,7 +96,7 @@ try{
    $stmt->execute();
    $page_num = $stmt->fetchColumn(); 
    // ページネーションの数を取得する 
-   $pagination = ceil($page_num / 5);  
+   $pagination = ceil($page_num / MAXITEM);  
 ?> 
 <?php
    for ($x=1; $x <= $pagination ; $x++) { 
